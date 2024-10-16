@@ -197,6 +197,14 @@ article p {
   outline: 2px solid #006b3a;
 }
 
+/* Added focus styles for keyboard navigation */
+a:focus,
+input:focus,
+button:focus {
+  outline: 2px solid #006b3a;
+  outline-offset: 3px;
+}
+
   </style>
 </head>
 
@@ -208,12 +216,12 @@ article p {
       
       <!-- Maybe this could be improved with aria-activedescendant later? -->
       <nav class="menu">
-        <a href="#">Home</a>
-        <a href="#">Politics</a>
-        <a href="#">Business</a>
-        <a href="#">Entertainment</a>
-        <a href="#">Sports</a>
-        <a href="#" class="btn-search pull-right"><img src="https://raw.githubusercontent.com/udacity/ud891/2de2a0688c68809a3b453db3a24b1a59e8401459/lesson2-focus/02-dom-order/images/search.svg" alt="Search" />Search</a> 
+        <a href="#" tabindex="0">Home</a>
+        <a href="#" tabindex="0">Politics</a>
+        <a href="#" tabindex="0">Business</a>
+        <a href="#" tabindex="0">Entertainment</a>
+        <a href="#" tabindex="0">Sports</a>
+        <a href="#" class="btn-search pull-right" tabindex="0"><img src="https://raw.githubusercontent.com/udacity/ud891/2de2a0688c68809a3b453db3a24b1a59e8401459/lesson2-focus/02-dom-order/images/search.svg" alt="Search" />Search</a> 
 
       </nav>
     </div>
@@ -283,12 +291,13 @@ article p {
     </div>
     
   </main>
-  
+
   <footer>
     <div class="container">
       <h3>Like the Funion? Consider joining our newsletter!</h3>
       <input type="text" aria-label="Email address" tabindex="0">
-      <button type="button" tabindex="0" onfocus="getFocus()">Sign up</button>
+      <!-- Removed the 'onfocus' event and replaced it with 'onclick' to ensure the window only opens on click -->
+      <button type="button" tabindex="0" onclick="getFocus()">Sign up</button> 
     </div>
   </footer>
   
